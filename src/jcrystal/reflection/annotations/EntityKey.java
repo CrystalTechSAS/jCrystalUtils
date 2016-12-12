@@ -1,5 +1,7 @@
 package jcrystal.reflection.annotations;
 
+import jcrystal.datetime.DateType;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -8,5 +10,6 @@ import java.lang.annotation.RetentionPolicy;
  */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EntityKey {
-
+    DateType dateType() default DateType.DATETIME;
+    int GMT() default 0;
 }
