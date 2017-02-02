@@ -36,5 +36,31 @@ public class JSONUtils {
         }
         return ret+"]";
     }
+    public static String jsonQuote(String valor){
+        return JSONObject.quote(valor);
+    }
+    public static String jsonQuote(long a){return Long.toString(a);}
+    public static String jsonQuote(int a){return Integer.toString(a);}
+    public static String jsonQuote(int[] a){
+        String ret = "[";
+        if(a.length>0)ret += a[0];
+        for(int e=1;e<a.length;e++)
+            ret+=","+a[e];
+        return ret+"]";
+    }
+    public static String jsonQuote(double a){return Double.toString(a);}
+    public static String jsonQuote(boolean a){return Boolean.toString(a);}
+    public static String jsonQuote(GeoPt a){return "["+Float.toString(a.getLatitude())+","+Float.toString(a.getLongitude())+"]";}
+    public static String jsonQuote(Email a){return JSONObject.quote(a.getEmail());}
+    public static String jsonQuote(List<GeoPt> puntos){
+        boolean coma=false;
+        String ret = "[";
+        for(GeoPt pt : puntos){
+            if(coma)ret += ",["+Float.toString(pt.getLatitude())+","+Float.toString(pt.getLongitude())+"]";
+            else ret += "["+Float.toString(pt.getLatitude())+","+Float.toString(pt.getLongitude())+"]";
+            coma = true;
+        }
+        return ret+"]";
+    }
 
 }
