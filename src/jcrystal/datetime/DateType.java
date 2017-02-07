@@ -6,9 +6,6 @@ import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 import java.util.TimeZone;
 
-/**
- * Created by G on 11/14/2016.
- */
 public enum DateType {
     DATETIME("yyyyMMddHHmm"),
     TIME("HHmm"),
@@ -21,5 +18,6 @@ public enum DateType {
     public final String format;
     DateType(String format){
         FORMAT = new SimpleDateFormat(this.format = format);
+        FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
     }
 }
