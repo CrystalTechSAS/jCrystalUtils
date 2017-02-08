@@ -11,5 +11,4 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EntityKey {
     DateType dateType() default DateType.DATETIME;
-    int GMT() default 0;
 }
