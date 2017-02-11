@@ -5,7 +5,7 @@ import java.util.Comparator;
 /**
  * Created by G on 11/13/2016.
  */
-public enum JsonLevel {
+public enum JsonLevel{
     ID(0), MIN(1), BASIC(2), NORMAL(3), DETAIL(4), FULL(5), NONE(Integer.MAX_VALUE);
     public final int level;
     JsonLevel(int level){
