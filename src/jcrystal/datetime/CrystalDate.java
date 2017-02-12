@@ -1,8 +1,19 @@
 package jcrystal.datetime;
 import java.util.*;
 import java.text.ParseException;
-public class CrystalDate extends java.util.Date{
+@jcrystal.reflection.annotations.CrystalDate
+public class CrystalDate{
+    private final java.util.Date date;
     public CrystalDate(String text)throws ParseException{
-        super(DateType.DATE.FORMAT.parse(text).getTime());
+        date = DateType.DATE.FORMAT.parse(text);
+    }
+    public CrystalDate(long time){
+        date = new java.util.Date(time);
+    }
+    public String format(){
+        return DateType.DATE.FORMAT.format(this);
+    }
+    public java.util.Date toDate(){
+        return date;
     }
 }

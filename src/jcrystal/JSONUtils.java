@@ -26,16 +26,7 @@ public class JSONUtils {
     public static String json(boolean a){return Boolean.toString(a);}
     public static String json(GeoPt a){return "["+Float.toString(a.getLatitude())+","+Float.toString(a.getLongitude())+"]";}
     public static String json(Email a){return JSONObject.quote(a.getEmail());}
-    public static String json(List<GeoPt> puntos){
-        boolean coma=false;
-        String ret = "[";
-        for(GeoPt pt : puntos){
-            if(coma)ret += ",["+Float.toString(pt.getLatitude())+","+Float.toString(pt.getLongitude())+"]";
-            else ret += "["+Float.toString(pt.getLatitude())+","+Float.toString(pt.getLongitude())+"]";
-            coma = true;
-        }
-        return ret+"]";
-    }
+
     public static String jsonQuote(String valor){
         return JSONObject.quote(valor);
     }
@@ -56,8 +47,8 @@ public class JSONUtils {
         boolean coma=false;
         String ret = "[";
         for(GeoPt pt : puntos){
-            if(coma)ret += ",["+Float.toString(pt.getLatitude())+","+Float.toString(pt.getLongitude())+"]";
-            else ret += "["+Float.toString(pt.getLatitude())+","+Float.toString(pt.getLongitude())+"]";
+            if(coma)ret += ",["+JSONObject.doubleToString(pt.getLatitude()) + "," + JSONObject.doubleToString(pt.getLongitude()) + "]";
+            else ret += "["+JSONObject.doubleToString(pt.getLatitude()) + "," + JSONObject.doubleToString(pt.getLongitude()) + "]";
             coma = true;
         }
         return ret+"]";

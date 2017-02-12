@@ -7,13 +7,13 @@ import java.util.Date;
 import java.util.TimeZone;
 
 public enum DateType {
-    DATE_TIME("yyyyMMddHHmm"),
-    TIME("HHmm"),
-    DATE("yyyyMMdd"),
-    DATE_SECONDS("yyyyMMddHHmmss"),
-    TIME_SECONDS("HHmmss"),
-    DATE_MILIS("yyyyMMddHHmmssSSS"),
-    TIME_MILIS("HmmssSSS");
+    DATE_TIME("yyyyMMddHHmmX"),
+    TIME("HHmmX"),
+    DATE("yyyyMMddX"),
+    DATE_SECONDS("yyyyMMddHHmmssX"),
+    TIME_SECONDS("HHmmssX"),
+    DATE_MILIS("yyyyMMddHHmmssSSSX"),
+    TIME_MILIS("HmmssSSSX");
 
     public final SimpleDateFormat FORMATS[] = new SimpleDateFormat[24];
     public final SimpleDateFormat FORMAT;
@@ -27,7 +27,7 @@ public enum DateType {
         }
     }
     static{
-        //generar("/Users/gasotelo/Documents/IdeaProjects/Backends/jCrystalUtils/src/", "jcrystal.datetime");
+        generar("/Users/gasotelo/Documents/IdeaProjects/Backends/jCrystalUtils/src/", "jcrystal.datetime");
     }
     public static void generar(String path, String paquete){
         try {
@@ -39,12 +39,20 @@ public enum DateType {
                     pw.println("package " + paquete + ";");
                     pw.println("import java.util.*;");
                     pw.println("import java.text.ParseException;");
-                    pw.println("public class Crystal" + name + " extends java.util.Date{");
+                    pw.println("@jcrystal.reflection.annotations.CrystalDate");
+                    pw.println("public class Crystal" + name + "{");
+                    pw.println("    private final java.util.Date date;");
                     pw.println("    public Crystal" + name + "(String text)throws ParseException{");
-                    pw.println("        super(DateType." + t.name() + ".FORMAT.parse(text).getTime());");
+                    pw.println("        date = DateType." + t.name() + ".FORMAT.parse(text);");
+                    pw.println("    }");
+                    pw.println("    public Crystal" + name + "(long time){");
+                    pw.println("        date = new java.util.Date(time);");
                     pw.println("    }");
                     pw.println("    public String format(){");
                     pw.println("        return DateType." + t.name() + ".FORMAT.format(this);");
+                    pw.println("    }");
+                    pw.println("    public java.util.Date toDate(){");
+                    pw.println("        return date;");
                     pw.println("    }");
                     pw.println("}");
                 }
