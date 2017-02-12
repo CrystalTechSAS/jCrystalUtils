@@ -16,5 +16,4 @@ public @interface EntityProperty {
     boolean unique() default false;
     boolean autoNow() default false;
     JsonLevel json() default JsonLevel.NORMAL;
-    DateType dateType() default DateType.DATE_TIME;
 }
