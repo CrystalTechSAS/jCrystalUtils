@@ -24,6 +24,13 @@ public class EntityUtils {
 			return ((Long)t).intValue();
 		return (Integer)t;
 	}
+	public static double getDouble(Entity ent, String key, double defaultValue){
+		Object t = ent.getProperty(key);
+		if(t==null)return defaultValue;
+		if(t instanceof Float)
+			return ((Float)t).doubleValue();
+		return (double)t;
+	}
 	public static int getInt(Entity ent, String key){
 		Object t = ent.getProperty(key);
 		if(t==null)return 0;

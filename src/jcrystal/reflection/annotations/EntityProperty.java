@@ -1,6 +1,5 @@
 package jcrystal.reflection.annotations;
 
-import jcrystal.datetime.DateType;
 import jcrystal.json.JsonLevel;
 
 import java.lang.annotation.Retention;
