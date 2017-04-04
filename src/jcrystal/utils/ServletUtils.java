@@ -27,7 +27,7 @@ public class ServletUtils {
         return Long.parseLong(val);
     }
     public static void sendNonAuthorizedUser(HttpServletResponse resp) throws IOException {
-        resp.getWriter().print("{\"success\": 2, \"code\": 3, \"mensaje\": \"Usuario no autenticado\"}");
+        resp.getWriter().print("{\"success\": 3, \"code\": 403, \"mensaje\": \"Usuario no autenticado\"}");
     }
     public static void send404(HttpServletResponse resp) throws IOException{
         resp.setStatus(404);
