@@ -14,5 +14,6 @@ public @interface EntityProperty {
     boolean indexed() default false;
     boolean unique() default false;
     boolean autoNow() default false;
+    boolean editable() default true;
     JsonLevel json() default JsonLevel.NORMAL;
 }

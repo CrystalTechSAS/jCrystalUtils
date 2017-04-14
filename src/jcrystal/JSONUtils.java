@@ -39,6 +39,27 @@ public class JSONUtils {
             ret+=","+a[e];
         return ret+"]";
     }
+    public static String jsonQuote(String[] a){
+        String ret = "[";
+        if(a.length>0)ret += JSONObject.quote(a[0]);
+        for(int e=1;e<a.length;e++)
+            ret+=","+JSONObject.quote(a[e]);
+        return ret+"]";
+    }
+    public static String jsonQuote(double[] a){
+        String ret = "[";
+        if(a.length>0)ret += Double.toString(a[0]);
+        for(int e=1;e<a.length;e++)
+            ret+=","+Double.toString(a[e]);
+        return ret+"]";
+    }
+    public static String jsonQuote(long[] a){
+        String ret = "[";
+        if(a.length>0)ret += Long.toString(a[0]);
+        for(int e=1;e<a.length;e++)
+            ret+=","+Long.toString(a[e]);
+        return ret+"]";
+    }
     public static String jsonQuote(double a){return Double.toString(a);}
     public static String jsonQuote(boolean a){return Boolean.toString(a);}
     public static String jsonQuote(GeoPt a){return "["+Float.toString(a.getLatitude())+","+Float.toString(a.getLongitude())+"]";}
