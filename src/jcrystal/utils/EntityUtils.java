@@ -1,5 +1,8 @@
 package jcrystal.utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Text;
 
@@ -55,5 +58,15 @@ public class EntityUtils {
 		if(t==null)return null;
 		if(t instanceof Integer)return ((Integer)t).longValue();
 		return (Long)t;
+	}
+	public static <T> List<T> getList(Entity ent, String key){
+		final Object t = ent.getProperty(key+".size");
+		if(t==null || !(t instanceof Long))
+			return new ArrayList<>(0);
+		final int size = ((Long)t).intValue();
+		ArrayList<T> ret = new ArrayList<>(size);
+		for(int e = 0; e < size; e++)
+			ret.add((T)ent.getProperty(key + "."+e));
+		return ret;
 	}
 }
