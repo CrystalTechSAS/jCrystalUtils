@@ -1,4 +1,4 @@
-package jcrystal.reflection.annotations;
+package jcrystal.reflection.annotations.async;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Cron {
 	String value();
-	String name() default "";
-	String desc() default "default description";
 	String timeZone() default "America/Bogota";
+	int minRetrySec() default 0;
+	int maxDoublings() default 0;
 }

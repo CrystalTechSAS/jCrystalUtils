@@ -27,16 +27,38 @@ public class CrystalContext {
 		return txn;
 	}
     public final void endTx(){
-    	txn.commit();
+    	if(txn != null)
+    		txn.commit();
     }
     public final boolean rollbackTx(){
-        if(txn.isActive()) {
+        if(txn != null && txn.isActive()) {
             txn.rollback();
             return false;
         }
+        txn = null;
         return true;
     }
     public final void delete(Key...keys){
         datastore.delete(txn, keys);
+    }
+    public static final void withinTxn(int retries, int delta, Runnable run){
+    	for(int e = 0; e < retries; e++){
+    		try {
+    			run.run();
+    			CrystalContext.get().endTx();
+    		}finally {
+    			if (CrystalContext.get().rollbackTx()) {
+    				break;
+    			}
+		    }
+    		try {
+				Thread.sleep((e+1) * delta);
+			} catch (InterruptedException e1) {
+				break;
+			}
+    	}
+    }
+    public static final void withinTxn(Runnable run){
+    	withinTxn(5, 500, run);
     }
 }
