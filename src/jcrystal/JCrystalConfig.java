@@ -133,5 +133,11 @@ public class JCrystalConfig {
 	public static File getOutFolderConsole() {
 		return outFolderConsole;
 	}
-	
+	private static boolean firebasCrashReportingEnabled = false;
+	public static boolean getFirebaseCrashReportingEnabled() {
+		return firebasCrashReportingEnabled;
+	}
+	public static void setFirebasCrashReportingEnabled(boolean firebasCrashReportingEnabled) {
+		JCrystalConfig.firebasCrashReportingEnabled = firebasCrashReportingEnabled;
+	}
 }

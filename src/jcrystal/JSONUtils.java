@@ -2,6 +2,7 @@ package jcrystal;
 
 import org.json.JSONObject;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class JSONUtils {
@@ -69,5 +70,12 @@ public class JSONUtils {
         }
         return ret+"]";
     }
-
+    public static String jsonQuoteString(List<String> puntos){
+        Iterator<String> it = puntos.iterator();
+        String ret = "[";
+        if(it.hasNext())ret += jsonQuote(it.next());
+        while(it.hasNext())
+        		ret += ","+jsonQuote(it.next());
+        return ret+"]";
+    }
 }
