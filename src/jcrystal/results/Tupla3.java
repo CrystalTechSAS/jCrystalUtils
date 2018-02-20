@@ -22,4 +22,7 @@ public class Tupla3<E, K, P> {
         this.v1 = v12.v0;
         this.v2 = v12.v1;
     }
+    public <Q> Tupla4<E, K, P, Q> append(Q q){
+		return new Tupla4<E, K, P, Q>(v0, v1, v2, q);
+    }
 }

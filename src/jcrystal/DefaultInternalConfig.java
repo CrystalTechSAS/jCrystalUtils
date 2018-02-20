@@ -22,5 +22,7 @@ public class DefaultInternalConfig implements IInternalConfig{
 	@Override public String UNATHORIZED_CONDITION() {
 		return SUCCESS_NAME()+" == 3";
 	}
-
+	@Override public String BASE_URL(String platform) {
+		return JCrystalConfig.getServerUrl();
+	}
 }

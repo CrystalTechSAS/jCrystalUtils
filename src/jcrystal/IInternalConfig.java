@@ -8,4 +8,10 @@ public interface IInternalConfig {
 	public String SUCCESS_CONDITION();
 	public String ERROR_CONDITION();
 	public String UNATHORIZED_CONDITION();
+	/**
+	 * 
+	 * @param platform ios o android
+	 * @return
+	 */
+	public String BASE_URL(String platform);
 }

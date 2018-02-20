@@ -13,7 +13,7 @@ public enum DateType {
     TIME_MILIS("HmmssSSS");
 
     public final SimpleDateFormat FORMAT;
-    public final String format;
+    public String format;
     DateType(String format){
         FORMAT = new SimpleDateFormat(this.format = format);
         FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));

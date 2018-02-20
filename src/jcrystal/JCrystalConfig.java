@@ -3,6 +3,7 @@ package jcrystal;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Arrays;
 
 public class JCrystalConfig {
 
@@ -23,8 +24,8 @@ public class JCrystalConfig {
 	public static String serverUrl;
 	public static String serverWebUrl;
 	
-	public static final File srcFile = new File("src/java").exists()?new File("src/java"):new File("src");
-	public static final File webSrcFile = new File("WebContent").exists()?new File("WebContent"):new File("war").exists()?new File("war"):new File("web");
+	public static final File srcFile = getExistingFolder("src/main/java","src/java","src");
+	public static final File webSrcFile = getExistingFolder("src/main/webapp","WebContent","war","web");
 	public static boolean isAppEngine = true;
 	public static void setAppEngine(boolean isAppEngine) {
 		JCrystalConfig.isAppEngine = isAppEngine;
@@ -139,5 +140,9 @@ public class JCrystalConfig {
 	}
 	public static void setFirebasCrashReportingEnabled(boolean firebasCrashReportingEnabled) {
 		JCrystalConfig.firebasCrashReportingEnabled = firebasCrashReportingEnabled;
+	}
+	private static File getExistingFolder(String...files) {
+		for(String f : files)if(new File(f).exists())return new File(f);
+		throw new NullPointerException("Folder not found "+ Arrays.toString(files));
 	}
 }

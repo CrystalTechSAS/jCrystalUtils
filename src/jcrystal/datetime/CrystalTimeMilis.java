@@ -24,4 +24,43 @@ public class CrystalTimeMilis{
     public static java.util.Date toDate(CrystalTimeMilis cDate){
         return cDate == null ? null : cDate.date;
     }
+    public static final java.text.SimpleDateFormat SDF_SIMPLE_TIME = new java.text.SimpleDateFormat("HH:mm");
+    public static final java.text.SimpleDateFormat SDF_SIMPLE_DATE = new java.text.SimpleDateFormat("dd/MM/yyyy");
+    public static final java.text.SimpleDateFormat SDF_SIMPLE_DATE_TEXT = new java.text.SimpleDateFormat("dd MMM yyyy");
+    public static final java.text.SimpleDateFormat SDF_SIMPLE_DATE_TIME = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm");
+    public static CrystalTimeMilis now(){
+        return new CrystalTimeMilis(System.currentTimeMillis());
+    }
+    public static CrystalTimeMilis today(){
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
+        gc.set(GregorianCalendar.MINUTE, 0);
+        gc.set(GregorianCalendar.MILLISECOND, 0);
+        return new CrystalTimeMilis(gc.getTimeInMillis());
+    }
+    public static CrystalTimeMilis toMonth(){
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
+        gc.set(GregorianCalendar.MINUTE, 0);
+        gc.set(GregorianCalendar.MILLISECOND, 0);
+        gc.set(GregorianCalendar.DAY_OF_MONTH, 1);
+        return new CrystalTimeMilis(gc.getTimeInMillis());
+    }
+    public static CrystalTimeMilis toWeek(){
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
+        gc.set(GregorianCalendar.MINUTE, 0);
+        gc.set(GregorianCalendar.MILLISECOND, 0);
+        gc.set(GregorianCalendar.DAY_OF_WEEK, 0);
+        return new CrystalTimeMilis(gc.getTimeInMillis());
+    }
+    public CrystalTimeMilis add(int field, int value){
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.setTime(date);
+        gc.add(field, value);
+        return new CrystalTimeMilis(gc.getTimeInMillis());
+    }
+    public CrystalTimeMilis add(long time){
+        return new CrystalTimeMilis(date.getTime() + time);
+    }
 }
