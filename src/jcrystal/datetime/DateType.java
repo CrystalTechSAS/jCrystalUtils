@@ -10,7 +10,7 @@ public enum DateType {
     DATE_SECONDS("yyyyMMddHHmmss"),
     TIME_SECONDS("HHmmss"),
     DATE_MILIS("yyyyMMddHHmmssSSS"),
-    TIME_MILIS("HmmssSSS");
+    TIME_MILIS("HHmmssSSS");
 
     public final SimpleDateFormat FORMAT;
     public String format;

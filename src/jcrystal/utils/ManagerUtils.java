@@ -1,6 +1,10 @@
 package jcrystal.utils;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 import com.google.appengine.api.datastore.GeoPt;
 import jcrystal.utils.InternalException;
@@ -27,4 +31,12 @@ public class ManagerUtils {
     public static GeoPt geoPt(double lat, double lng){
         return new GeoPt((float)lat, (float)lng);
     }
+    public static <T> T[] sort(T[] array, Comparator<T> comp) {
+    		Arrays.sort(array, comp);
+    		return array;
+    }
+    public static <T> List<T> sort(List<T> list, Comparator<T> comp) {
+    		Collections.sort(list, comp);
+		return list;
+}
 }

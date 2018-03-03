@@ -1,5 +1,5 @@
 package jcrystal;
 
 public enum JSType {
-	ANGULAR, JSWEET
+	ANGULAR, JSWEET, JQUERY
 }
