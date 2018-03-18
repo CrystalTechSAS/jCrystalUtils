@@ -3,10 +3,25 @@ package jcrystal.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.Text;
 
 public class EntityUtils {
+	public static JSONArray getJsonArray(Entity ent, String key) {
+		String temp = getString(ent, key);
+		if(temp == null)
+			return null;
+		return new JSONArray(temp);
+	}
+	public static JSONObject getJsonObject(Entity ent, String key) {
+		String temp = getString(ent, key);
+		if(temp == null)
+			return null;
+		return new JSONObject(temp);
+	}
 	public static String getString(Entity ent, String key){
 		Object t = ent.getProperty(key);
 		if(t==null)return null;
@@ -17,6 +32,11 @@ public class EntityUtils {
 	public static boolean getBool(Entity ent, String key){
 		Object t = ent.getProperty(key);
 		if(t==null)return false;
+		return (Boolean)t;
+	}
+	public static boolean getBool(Entity ent, String key, boolean defaultValue){
+		Object t = ent.getProperty(key);
+		if(t==null)return defaultValue;
 		return (Boolean)t;
 	}
 

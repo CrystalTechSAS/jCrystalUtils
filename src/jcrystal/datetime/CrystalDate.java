@@ -28,32 +28,6 @@ public class CrystalDate{
     public static final java.text.SimpleDateFormat SDF_SIMPLE_DATE = new java.text.SimpleDateFormat("dd/MM/yyyy");
     public static final java.text.SimpleDateFormat SDF_SIMPLE_DATE_TEXT = new java.text.SimpleDateFormat("dd MMM yyyy");
     public static final java.text.SimpleDateFormat SDF_SIMPLE_DATE_TIME = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm");
-    public static CrystalDate now(){
-        return new CrystalDate(System.currentTimeMillis());
-    }
-    public static CrystalDate today(){
-        GregorianCalendar gc = new GregorianCalendar();
-        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
-        gc.set(GregorianCalendar.MINUTE, 0);
-        gc.set(GregorianCalendar.MILLISECOND, 0);
-        return new CrystalDate(gc.getTimeInMillis());
-    }
-    public static CrystalDate toMonth(){
-        GregorianCalendar gc = new GregorianCalendar();
-        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
-        gc.set(GregorianCalendar.MINUTE, 0);
-        gc.set(GregorianCalendar.MILLISECOND, 0);
-        gc.set(GregorianCalendar.DAY_OF_MONTH, 1);
-        return new CrystalDate(gc.getTimeInMillis());
-    }
-    public static CrystalDate toWeek(){
-        GregorianCalendar gc = new GregorianCalendar();
-        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
-        gc.set(GregorianCalendar.MINUTE, 0);
-        gc.set(GregorianCalendar.MILLISECOND, 0);
-        gc.set(GregorianCalendar.DAY_OF_WEEK, 0);
-        return new CrystalDate(gc.getTimeInMillis());
-    }
     public CrystalDate add(int field, int value){
         GregorianCalendar gc = new GregorianCalendar();
         gc.setTime(date);
