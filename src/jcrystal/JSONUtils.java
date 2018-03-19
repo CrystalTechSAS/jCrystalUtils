@@ -2,6 +2,7 @@ package jcrystal;
 
 import org.json.JSONObject;
 
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
@@ -77,5 +78,52 @@ public class JSONUtils {
         while(it.hasNext())
         		ret += ","+jsonQuote(it.next());
         return ret+"]";
+    }
+    public static String jsonQuoteLong(List<Long> puntos){
+        Iterator<Long> it = puntos.iterator();
+        String ret = "[";
+        if(it.hasNext())ret += it.next();
+        while(it.hasNext())
+        		ret += ","+it.next().toString();
+        return ret+"]";
+    }
+    public static String jsonQuoteInteger(List<Integer> puntos){
+        Iterator<Integer> it = puntos.iterator();
+        String ret = "[";
+        if(it.hasNext())ret += it.next();
+        while(it.hasNext())
+        		ret += ","+it.next().toString();
+        return ret+"]";
+    }
+    
+    public static void jsonQuoteString(PrintWriter _pw, List<String> puntos){
+        Iterator<String> it = puntos.iterator();
+        _pw.print("[");
+        if(it.hasNext())_pw.print(jsonQuote(it.next()));
+        while(it.hasNext()) {
+        		_pw.print(",");
+        		_pw.print(jsonQuote(it.next()));
+        }
+        _pw.print("]");
+    }
+    public static void jsonQuoteLong(PrintWriter _pw, List<Long> puntos){
+        Iterator<Long> it = puntos.iterator();
+        _pw.print("[");
+        if(it.hasNext())_pw.print(it.next());
+        while(it.hasNext()) {
+        		_pw.print(",");
+        		_pw.print(it.next());
+        }
+        _pw.print("]");
+    }
+    public static void jsonQuoteInteger(PrintWriter _pw, List<Integer> puntos){
+    		Iterator<Integer> it = puntos.iterator();
+        _pw.print("[");
+        if(it.hasNext())_pw.print(it.next());
+        while(it.hasNext()) {
+        		_pw.print(",");
+        		_pw.print(it.next());
+        }
+        _pw.print("]");
     }
 }
