@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class JSONUtils {
     public static String json(String valor){
@@ -125,5 +126,24 @@ public class JSONUtils {
         		_pw.print(it.next());
         }
         _pw.print("]");
+    }
+    public static void jsonQuoteStringDouble(PrintWriter _pw, Map<String, Double> puntos){
+	    Iterator<Map.Entry<String, Double>> it = puntos.entrySet().iterator();
+	    Map.Entry<String, Double> e;
+	    _pw.print("{");
+	    if(it.hasNext()){
+		    e = it.next();
+		    _pw.print(jsonQuote(e.getKey()));
+		    _pw.print(":");
+		    _pw.print(e.getValue());
+	    }
+	    while(it.hasNext()) {
+		    e = it.next();
+		    _pw.print(",");
+      		_pw.print(jsonQuote(e.getKey()));
+		    _pw.print(":");
+		    _pw.print(e.getValue());
+	    }
+	    _pw.print("}");
     }
 }

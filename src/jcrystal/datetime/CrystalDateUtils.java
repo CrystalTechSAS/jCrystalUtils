@@ -38,6 +38,15 @@ public class CrystalDateUtils {
         gc.set(GregorianCalendar.DAY_OF_MONTH, 1);
         return gc;
     }
+    public static GregorianCalendar toYear(TimeZone time){
+	    GregorianCalendar gc = new GregorianCalendar(time);
+        gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
+        gc.set(GregorianCalendar.MINUTE, 0);
+        gc.set(GregorianCalendar.MILLISECOND, 0);
+        gc.set(GregorianCalendar.DAY_OF_YEAR, 1);
+        gc.set(GregorianCalendar.MONTH, GregorianCalendar.JANUARY);
+        return gc;
+    }
     public static GregorianCalendar toWeek(){
         GregorianCalendar gc = new GregorianCalendar();
         gc.set(GregorianCalendar.HOUR_OF_DAY, 0);
