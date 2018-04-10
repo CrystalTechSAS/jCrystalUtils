@@ -1,5 +1,6 @@
 package jcrystal.manager.utils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -46,7 +47,7 @@ public class FileWrapperResponse<T> {
 			AppIdentityService appIdentity = AppIdentityServiceFactory.getAppIdentityService();
 			name = new GcsFilename(appIdentity.getDefaultGcsBucketName(), fileName);
 		}else name = new GcsFilename(bucketName, fileName);
-		GcsInputChannel readChannel = gcsService.openPrefetchingReadChannel(name, 0, 10*1024);
+		GcsInputChannel readChannel = gcsService.openPrefetchingReadChannel(name, 0, 1024*1024);
 	      copy(Channels.newInputStream(readChannel), output, putFirst?0:1);
 	}
 	
@@ -58,6 +59,8 @@ public class FileWrapperResponse<T> {
 			for(int bytesRead; (bytesRead=reader.read(buffer)) != -1;){
 				output.write(buffer, 0, bytesRead);
 			}
+		}catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 }
