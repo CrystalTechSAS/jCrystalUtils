@@ -1,6 +1,8 @@
 package jcrystal.utils;
 
 import java.io.IOException;
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,5 +34,19 @@ public class ServletUtils {
     public static void send404(HttpServletResponse resp) throws IOException{
         resp.setStatus(404);
         resp.getWriter().print("The requested resource doesn't exists.");
+    }
+    public static Cookie setAge(Cookie cookie, int age){cookie.setMaxAge(age);return cookie;}
+    public static String getToken(HttpServletRequest req){
+	    String token = req.getHeader("Authorization");
+	    if(token == null){
+		    Cookie[] cookies = req.getCookies();
+		    if(cookies != null){
+			    for(Cookie c : cookies)if("token".equals(c.getName())){
+				    token = c.getValue();
+				    break;
+			    }
+		    }
+	    }
+	    return token;
     }
 }
