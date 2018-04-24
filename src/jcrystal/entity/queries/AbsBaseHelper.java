@@ -68,5 +68,15 @@ public abstract class AbsBaseHelper <T extends AbsBaseHelper<T,Q>, Q>{
 			return create(ent);
 		return null;
 	}
+	protected Q processQueryUnique(com.google.appengine.api.datastore.Query q, jcrystal.utils.Predicado<Q> filtro){
+		com.google.appengine.api.datastore.PreparedQuery _pq = jcrystal.context.CrystalContext.get().datastore.prepare($txn, q);
+		for(com.google.appengine.api.datastore.Entity ent : fetchOptions==null?_pq.asIterable():_pq.asIterable(fetchOptions)) {
+			Q $nuevo = create(ent);
+			if(filtro.eval($nuevo)){
+				return $nuevo;
+			}
+		}
+		return null;
+	}
 }
  

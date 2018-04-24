@@ -36,6 +36,7 @@ public class ServletUtils {
         resp.getWriter().print("The requested resource doesn't exists.");
     }
     public static Cookie setAge(Cookie cookie, int age){cookie.setMaxAge(age);return cookie;}
+    public static Cookie setPath(Cookie cookie, String path){cookie.setPath(path);return cookie;}
     public static String getToken(HttpServletRequest req){
 	    String token = req.getHeader("Authorization");
 	    if(token == null){
