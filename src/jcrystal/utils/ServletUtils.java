@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletUtils {
     public static int optInt(HttpServletRequest req, String name, int defaultValue){
         String val = req.getParameter(name);
-        if(val == null)
-            return defaultValue;
+        if(val == null || val.isEmpty())
+              return defaultValue;
         return Integer.parseInt(val);
     }
     public static Integer optInteger(HttpServletRequest req, String name){
         String val = req.getParameter(name);
-        if(val == null)
-            return null;
+        if(val == null || val.isEmpty())
+                  return null;
         return Integer.parseInt(val);
     }
     public static Long optLong(HttpServletRequest req, String name){
         String val = req.getParameter(name);
-        if(val == null)
+        if(val == null || val.isEmpty())
             return null;
         return Long.parseLong(val);
     }
