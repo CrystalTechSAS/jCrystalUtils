@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.util.Arrays;
 
 public class JCrystalConfig {
-
+	
 	private static File outFolderIOS;
 	private static File outFolderAndroid;
 	private static File outFolderWeb;
@@ -35,12 +35,12 @@ public class JCrystalConfig {
 	}
 	public static void setServerUrl(String serverUrl) {
 		while (serverUrl != null && serverUrl.endsWith("/"))
-			serverUrl = serverUrl.substring(0, serverUrl.length() - 1);
+		serverUrl = serverUrl.substring(0, serverUrl.length() - 1);
 		JCrystalConfig.serverUrl = serverUrl;
 	}
 	public static void setServerWebUrl(String serverWebUrl) {
 		while (serverWebUrl != null && serverWebUrl.endsWith("/"))
-			serverWebUrl = serverWebUrl.substring(0, serverWebUrl.length() - 1);
+		serverWebUrl = serverWebUrl.substring(0, serverWebUrl.length() - 1);
 		JCrystalConfig.serverWebUrl = serverWebUrl;
 	}
 	public static void setOutFolderWeb(String outFolderWeb) {
@@ -73,7 +73,7 @@ public class JCrystalConfig {
 	public static void setOutFolderIOS(String outFolderIOS) {
 		if(outFolderIOS != null && (new File(outFolderIOS).exists() || new File(outFolderIOS).mkdirs()))
 			JCrystalConfig.outFolderIOS = new File(outFolderIOS);
-		else 
+		else
 			JCrystalConfig.outFolderIOS = null;
 	}
 	public static void setGCMToken(String gCMToken) {

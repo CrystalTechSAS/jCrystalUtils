@@ -7,5 +7,5 @@ import jcrystal.DefaultInternalConfig;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface InternalWSConfig {
-    Class<?> value() default DefaultInternalConfig.class;
+	Class<?> value() default DefaultInternalConfig.class;
 }

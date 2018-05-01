@@ -22,27 +22,27 @@ public class FBApi {
 		try {
 			HttpURLConnection connection = (HttpURLConnection) new URL("https://graph.facebook.com/v2.11/me?fields=id,name,about,birthday&access_token="+token).openConnection();
 			connection.setRequestMethod("GET");
-	        connection.setConnectTimeout(30000);
-	        connection.connect();
-	        
-	        int resp = connection.getResponseCode();
-	        System.out.println(resp);
+			connection.setConnectTimeout(30000);
+			connection.connect();
+			
+			int resp = connection.getResponseCode();
+			System.out.println(resp);
 			if(resp>= 200 && resp < 300) {
-	        		JSONObject json = new JSONObject(new JSONTokener(connection.getInputStream()));
-	        		connection.disconnect();
-	        		FBUser ret = new FBUser(json);
-	        		if(json == null || ret.id == null)
-	        			throw new InternalException(500, "Unauthorized user");
-	        		return ret;
-	        }
+				JSONObject json = new JSONObject(new JSONTokener(connection.getInputStream()));
+				connection.disconnect();
+				FBUser ret = new FBUser(json);
+				if(json == null || ret.id == null)
+					throw new InternalException(500, "Unauthorized user");
+				return ret;
+			}
 			if(resp >= 300 || resp < 200) {
 				throw new InternalException(500, "Error connecting with facebook");
 			}
 			connection.disconnect();
 			throw new InternalException(500, "Unauthorized user");
-        } catch (Exception ex) {
-        		ex.printStackTrace();
-        		throw new InternalException(500, "Unauthorized user");
-        }
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new InternalException(500, "Unauthorized user");
+		}
 	}
 }

@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface JsonDetail {
-    JsonLevel level = JsonLevel.DETAIL;
-    Class[] value() default {};
+	JsonLevel level = JsonLevel.DETAIL;
+	Class[] value() default {};
 }

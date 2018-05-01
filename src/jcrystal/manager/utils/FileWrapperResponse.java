@@ -38,23 +38,23 @@ public class FileWrapperResponse<T> {
 	}
 	public void append(PrintWriter output, boolean putFirst) throws IOException{
 		final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
-			      .initialRetryDelayMillis(10)
-			      .retryMaxAttempts(10)
-			      .totalRetryPeriodMillis(15000)
-			      .build());
+		.initialRetryDelayMillis(10)
+		.retryMaxAttempts(10)
+		.totalRetryPeriodMillis(15000)
+		.build());
 		GcsFilename name;
 		if(bucketName == null) {
 			AppIdentityService appIdentity = AppIdentityServiceFactory.getAppIdentityService();
 			name = new GcsFilename(appIdentity.getDefaultGcsBucketName(), fileName);
 		}else name = new GcsFilename(bucketName, fileName);
 		GcsInputChannel readChannel = gcsService.openPrefetchingReadChannel(name, 0, 1024*1024);
-	      copy(Channels.newInputStream(readChannel), output, putFirst?0:1);
+		copy(Channels.newInputStream(readChannel), output, putFirst?0:1);
 	}
 	
 	private void copy(InputStream input, PrintWriter output, int skip) throws IOException {
 		try(InputStreamReader reader = new InputStreamReader(input)){
 			while(skip-->0)
-				reader.read();
+			reader.read();
 			char[] buffer = new char[10*1024];
 			for(int bytesRead; (bytesRead=reader.read(buffer)) != -1;){
 				output.write(buffer, 0, bytesRead);

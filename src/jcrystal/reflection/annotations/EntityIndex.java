@@ -5,6 +5,6 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EntityIndex {
-    String name() default "";
-    String[] value() default {};
+	String name() default "";
+	String[] value() default {};
 }

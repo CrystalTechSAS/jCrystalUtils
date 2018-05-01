@@ -9,9 +9,9 @@ public interface IInternalConfig {
 	public String ERROR_CONDITION();
 	public String UNATHORIZED_CONDITION();
 	/**
-	 * 
-	 * @param platform ios o android
-	 * @return
-	 */
+	*
+	* @param platform ios o android
+	* @return
+	*/
 	public String BASE_URL(String platform);
 }

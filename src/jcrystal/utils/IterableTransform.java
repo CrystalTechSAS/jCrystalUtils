@@ -3,7 +3,7 @@ package jcrystal.utils;
 import java.util.Iterator;
 
 public abstract class IterableTransform<V, K> implements Iterable<K>{
-
+	
 	Iterable<V> it;
 	public IterableTransform(Iterable<V> it) {
 		this.it = it;
@@ -22,7 +22,7 @@ public abstract class IterableTransform<V, K> implements Iterable<K>{
 		public boolean hasNext() {
 			return it.hasNext();
 		}
-
+		
 		@Override
 		public K next() {
 			return transform(it.next());

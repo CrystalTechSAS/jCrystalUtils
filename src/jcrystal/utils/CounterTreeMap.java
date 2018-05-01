@@ -12,7 +12,7 @@ public class CounterTreeMap<K> extends TreeMap<K, Integer>{
 	}
 	@Override
 	public Integer get(Object key) {
-		Integer ret = super.get(key); 
+		Integer ret = super.get(key);
 		return ret==null ? 0 : ret;
 	}
 }

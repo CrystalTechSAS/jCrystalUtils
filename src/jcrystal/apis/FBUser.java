@@ -7,8 +7,8 @@ public class FBUser {
 	public String about;
 	public String birthday;
 	
-
-/* FROMJSON */
+	
+	/* FROMJSON */
 	public FBUser(){
 	}
 	public FBUser(org.json.JSONObject json)throws org.json.JSONException{
@@ -24,8 +24,8 @@ public class FBUser {
 		}
 		return ret;
 	}
-/* END */
-/* GEN */
+	/* END */
+	/* GEN */
 	public void toJson(java.io.PrintWriter _pw){
 		boolean __first = true;
 		_pw.print("{");
@@ -87,6 +87,6 @@ public class FBUser {
 		}
 		_pw.print("]");
 	}
-/* END */
+	/* END */
 }
 

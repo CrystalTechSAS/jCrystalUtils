@@ -5,6 +5,6 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Entidad {
-    String nombre() default "";
-    boolean useParentName() default false;
+	String nombre() default "";
+	boolean useParentName() default false;
 }

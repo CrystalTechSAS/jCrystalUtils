@@ -5,5 +5,5 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Jsonify {
-    JsonLevel level = JsonLevel.BASIC;
+	JsonLevel level = JsonLevel.BASIC;
 }
