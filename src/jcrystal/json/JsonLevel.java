@@ -27,9 +27,9 @@ public enum JsonLevel{
 		@Override
 		public int compare(JsonLevel o1, JsonLevel o2) {
 			if(o1 == o2)return 0;
-				if(o1 == null)return -1;
-				if(o2 == null)return 1;
-				return o1.compareTo(o2);
+			if(o1 == null)return -1;
+			if(o2 == null)return 1;
+			return o1.compareTo(o2);
 		}
 	};
 }

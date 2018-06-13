@@ -1,12 +1,13 @@
 package jcrystal;
 
-
 import java.io.File;
-import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import jcrystal.clients.Client;
 
 public class JCrystalConfig {
-	
 	private static File outFolderIOS;
 	private static File outFolderAndroid;
 	private static File outFolderWeb;
@@ -15,7 +16,7 @@ public class JCrystalConfig {
 	/** El paquete donde se almacenan las interfaces generadas por jCrystal */
 	private static String packageInterfaces;
 	/** El nombre del servlet a ser generado para ser usado en los web services */
-	private static String servletName;
+	private static String servletPackage;
 	private static String GCMToken;
 	private static boolean enableJSF = false;
 	
@@ -25,6 +26,7 @@ public class JCrystalConfig {
 	public static String serverWebUrl;
 	
 	public static final File srcFile = getExistingFolder("src/main/java","src/java","src");
+	public static final File srcUtils = new File(srcFile.getParentFile(), "utils");
 	public static final File webSrcFile = getExistingFolder("src/main/webapp","WebContent","war","web");
 	public static boolean isAppEngine = true;
 	public static void setAppEngine(boolean isAppEngine) {
@@ -79,10 +81,10 @@ public class JCrystalConfig {
 	public static void setGCMToken(String gCMToken) {
 		GCMToken = gCMToken;
 	}
-	public static void setServletName(String servletName) {
-		JCrystalConfig.servletName = servletName;
-		if(JCrystalConfig.servletName != null)
-			new File(srcFile, JCrystalConfig.servletName.replace(".", "/") + ".java").delete();
+	public static void setServletPackage(String servletPackage) {
+		JCrystalConfig.servletPackage = servletPackage;
+		if(JCrystalConfig.servletPackage != null)
+			new File(srcFile, JCrystalConfig.servletPackage.replace(".", "/")).mkdirs();
 		
 	}
 	public static void setPackageInterfaces(String packageInterfaces) {
@@ -113,8 +115,8 @@ public class JCrystalConfig {
 	public static String getPackageInterfaces() {
 		return packageInterfaces;
 	}
-	public static String getServletName() {
-		return servletName;
+	public static String getServletPackage() {
+		return servletPackage;
 	}
 	public static boolean isEnableJSF() {
 		return enableJSF;

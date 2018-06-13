@@ -1,7 +1,7 @@
 package jcrystal.datetime;
 import java.util.*;
 import java.text.ParseException;
-@jcrystal.reflection.annotations.CrystalDate
+@jcrystal.reflection.annotations.CrystalDate(DateType.TIME_SECONDS)
 public class CrystalTimeSeconds{
 	public static final java.text.SimpleDateFormat SDF = new java.text.SimpleDateFormat("HHmmss");
 	static {SDF.setTimeZone(TimeZone.getTimeZone("UTC"));}

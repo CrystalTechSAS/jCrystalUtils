@@ -7,5 +7,5 @@ import jcrystal.datetime.DateType;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CrystalDate {
-	DateType value() default DateType.DATE;
+	DateType value();
 }

@@ -39,4 +39,17 @@ public class ManagerUtils {
 		Collections.sort(list, comp);
 		return list;
 	}
+	
+	public static boolean equal(long v1, long v2) {
+		return v1 == v2;
+	}
+	public static boolean equal(long v1, Long v2) {
+		return v2 != null && v1 == v2.longValue();
+	}
+	public static boolean equal(Long v1, long v2) {
+		return v1 != null && v1.longValue() == v2;
+	}
+	public static boolean equal(Long v1, Long v2) {
+		return (v1 == null && v2 == null) || (v1 != null && v2 != null && v1.longValue() == v2.longValue());
+	}
 }

@@ -1,6 +1,8 @@
 package jcrystal.utils;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -49,5 +51,19 @@ public class ServletUtils {
 			}
 		}
 		return token;
+	}
+	public static void copy(int bufferSize, InputStream input, OutputStream output) throws IOException {
+		try {
+			byte[] buffer = new byte[bufferSize];
+			int bytesRead = input.read(buffer);
+			while (bytesRead != -1) {
+				output.write(buffer, 0, bytesRead);
+				bytesRead = input.read(buffer);
+			}
+			output.flush();
+		} finally {
+			input.close();
+			output.close();
+		}
 	}
 }

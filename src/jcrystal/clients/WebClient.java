@@ -6,4 +6,5 @@ import java.util.function.Predicate;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface WebClient {
+	public String id() default "";
 }

@@ -1,5 +1,9 @@
 package jcrystal;
 
+import java.util.List;
+
+import jcrystal.clients.Client;
+
 public interface IInternalConfig {
 	public String SUCCESS_NAME();
 	public Class<?> SUCCESS_TYPE();

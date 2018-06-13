@@ -4,7 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.channels.Channels;
 
 import com.google.appengine.api.appidentity.AppIdentityService;
@@ -36,7 +37,12 @@ public class FileWrapperResponse<T> {
 			return item;
 		return null;
 	}
-	public void append(PrintWriter output, boolean putFirst) throws IOException{
+	public String asString() throws IOException{
+		StringWriter sw = new StringWriter();
+		append(sw, false);
+		return sw.toString();
+	}
+	public void append(Writer output, boolean putFirst) throws IOException{
 		final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
 		.initialRetryDelayMillis(10)
 		.retryMaxAttempts(10)
@@ -51,7 +57,7 @@ public class FileWrapperResponse<T> {
 		copy(Channels.newInputStream(readChannel), output, putFirst?0:1);
 	}
 	
-	private void copy(InputStream input, PrintWriter output, int skip) throws IOException {
+	private void copy(InputStream input, Writer output, int skip) throws IOException {
 		try(InputStreamReader reader = new InputStreamReader(input)){
 			while(skip-->0)
 			reader.read();
