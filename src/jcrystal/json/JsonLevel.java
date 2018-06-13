@@ -7,7 +7,7 @@ import java.util.Comparator;
 * Created by G on 11/13/2016.
 */
 public enum JsonLevel{
-	ID(0), MIN(1), BASIC(2), NORMAL(3), DETAIL(4), FULL(5), TOSTRING(-1), NONE(Integer.MAX_VALUE);
+	ID(0), MIN(1), BASIC(2), NORMAL(3), DETAIL(4), FULL(5), TOSTRING(-1), NONE(Integer.MAX_VALUE), DEFAULT(Integer.MAX_VALUE);
 	public static final JsonLevel[] managedValues;
 	static {
 		ArrayList<JsonLevel> temp= new ArrayList<>();
