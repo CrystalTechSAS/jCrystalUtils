@@ -1,6 +1,11 @@
-package jcrystal;
+package jcrystal.clients;
 
 public class DefaultInternalConfig implements IInternalConfig{
+	private String baseURL;
+	public DefaultInternalConfig setBaseURL(String baseURL) {
+		this.baseURL = baseURL;
+		return this;
+	}
 	@Override public String SUCCESS_NAME() {
 		return "success";
 	}
@@ -23,6 +28,14 @@ public class DefaultInternalConfig implements IInternalConfig{
 		return SUCCESS_NAME()+" == 3";
 	}
 	@Override public String BASE_URL(String platform) {
+		return baseURL;
+	}
+	@Override
+	public boolean embeddedResponse() {
+		return false;
+	}
+	@Override
+	public String id() {
 		return null;
 	}
 }

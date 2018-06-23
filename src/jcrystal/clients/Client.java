@@ -12,13 +12,12 @@ public class Client {
 	public final ClientType type;
 	public final String id;
 	public String output;
-	public String serverUrl;
+	public final List<IInternalConfig> configs = new ArrayList<>();
 	
 	public Client(ClientType type, String id) {
 		this.type = type;
 		this.id = id;
 		CLIENTES.add(this);
-		serverUrl = "/";
 		if(type == ClientType.ADMIN)
 			output = new File(JCrystalConfig.webSrcFile,"admin").getAbsolutePath();
 		else
@@ -28,10 +27,16 @@ public class Client {
 		this.output = output;
 		return this;
 	}
-	public Client setServerUrl(String serverUrl) {
-		while (serverUrl != null && serverUrl.endsWith("/"))
-			serverUrl = serverUrl.substring(0, serverUrl.length() - 1);
-		this.serverUrl = serverUrl;
+	public Client setServerUrl(String url) {
+		while (url != null && url.endsWith("/"))
+			url = url.substring(0, url.length() - 1);
+		configs.add(new DefaultInternalConfig().setBaseURL(url));
 		return this;
+	}
+	protected Client clone(ClientType type){
+		Client ret = new Client(type, id);
+		ret.output = output;
+		ret.configs.addAll(configs);
+		return ret;
 	}
 }

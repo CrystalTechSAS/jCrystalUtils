@@ -36,7 +36,7 @@ public class JCrystalConfig {
 	public static void setServletPackage(String servletPackage) {
 		JCrystalConfig.servletPackage = servletPackage;
 		if(JCrystalConfig.servletPackage != null)
-			new File(srcFile, JCrystalConfig.servletPackage.replace(".", "/")).mkdirs();
+			new File(srcUtils, JCrystalConfig.servletPackage.replace(".", "/")).mkdirs();
 		
 	}
 	public static void setPackageInterfaces(String packageInterfaces) {
