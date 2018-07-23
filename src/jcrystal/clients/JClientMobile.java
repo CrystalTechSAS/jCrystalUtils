@@ -1,24 +1,36 @@
 package jcrystal.clients;
 
-public class JClientMobile extends Client{
-	public String outputAndroid;
-	public String outputiOS;
+public class JClientMobile{
+	
+	JClientAndroid clientAndroid;
+	JClientIOS clientIOS;
 	
 	public JClientMobile(String id) {
-		super(ClientType.MOBILE, id);
+		clientAndroid = new JClientAndroid(id);
+		clientIOS = new JClientIOS(id);
 	}
 	public JClientMobile setOutputAndroid(String outputAndroid) {
-		this.outputAndroid = outputAndroid;
+		clientAndroid.setOutput(outputAndroid);
 		return this;
 	}
 	public JClientMobile setOutputiOS(String outputiOS) {
-		this.outputiOS = outputiOS;
+		clientIOS.setOutput(outputiOS);
 		return this;
 	}
-	@Override
-	public Client setOutput(String output) {
+	public JClientMobile setOutput(String output) {
 		setOutputAndroid(output+"/android");
 		setOutputiOS(output+"/ios");
-		return super.setOutput(output);
+		return this;
 	}
+	public JClientMobile setServerUrl(String url) {
+		clientAndroid.setServerUrl(url);
+		clientIOS.setServerUrl(url);
+		return this;
+	}
+	public JClientMobile addInternalConfig(IInternalConfig config) {
+		clientAndroid.configs.add(config);
+		clientIOS.configs.add(config);
+		return this;
+	}
+	
 }

@@ -1,8 +1,14 @@
 package jcrystal.clients;
 
-public class DefaultInternalConfig implements IInternalConfig{
+import java.io.Serializable;
+
+public final class DefaultInternalConfig implements IInternalConfig, Serializable{
+	private static final long serialVersionUID = -5447803111496332057L;
+	
 	private String baseURL;
-	public DefaultInternalConfig setBaseURL(String baseURL) {
+	private String id;
+	private boolean embeddedResponse;
+	public DefaultInternalConfig baseURL(String baseURL) {
 		this.baseURL = baseURL;
 		return this;
 	}
@@ -32,10 +38,19 @@ public class DefaultInternalConfig implements IInternalConfig{
 	}
 	@Override
 	public boolean embeddedResponse() {
-		return false;
+		return embeddedResponse;
 	}
 	@Override
 	public String id() {
-		return null;
+		return id;
+	}
+	public DefaultInternalConfig id(String id) {
+		this.id = id;
+		return this;
+	}
+	
+	public DefaultInternalConfig embeddedResponse(boolean value) {
+		embeddedResponse = value;
+		return this;
 	}
 }

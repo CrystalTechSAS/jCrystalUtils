@@ -4,7 +4,11 @@ import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class CrystalDateUtils {
+	public static final TimeZone UTC = TimeZone.getTimeZone("UTC");
 	public static final TimeZone GMT_5 = TimeZone.getTimeZone("GMT-05:00");
+	
+	public static TimeZone DEFAULT_TIME_ZONE = UTC;
+	
 	public static GregorianCalendar now(){
 		return new GregorianCalendar();
 	}

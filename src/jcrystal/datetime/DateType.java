@@ -17,7 +17,7 @@ public enum DateType {
 	public String userFormat;
 	DateType(String format, String userFormat){
 		FORMAT = new SimpleDateFormat(this.format = format);
-		FORMAT.setTimeZone(TimeZone.getTimeZone("UTC"));
+		FORMAT.setTimeZone(CrystalDateUtils.DEFAULT_TIME_ZONE);
 		this.userFormat = userFormat;
 	}
 }
