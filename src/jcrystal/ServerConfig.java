@@ -73,7 +73,7 @@ public class ServerConfig implements Serializable{
 	
 	//TODO: Eliminar del servidor
 
-	public File srcFile = LocalPaths.srcFile;
-	public File srcUtils = LocalPaths.srcUtils;
-	public File webSrcFile = LocalPaths.webSrcFile;
+	public transient File srcFile = LocalPaths.srcFile;
+	public transient File srcUtils = LocalPaths.srcUtils;
+	public transient File webSrcFile = LocalPaths.webSrcFile;
 }

@@ -16,7 +16,7 @@ public class Client implements Serializable{
 	
 	public final ClientType type;
 	public final String id;
-	public String output;
+	public transient String output;
 	public final List<IInternalConfig> configs = new ArrayList<>();
 	
 	public Client(ClientType type, String id) {

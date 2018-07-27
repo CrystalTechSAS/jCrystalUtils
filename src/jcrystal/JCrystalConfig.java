@@ -9,5 +9,5 @@ import jcrystal.clients.Client;
 
 public class JCrystalConfig {
 	public static ServerConfig SERVER = new ServerConfig();
-	
+	public static String JCRYSTAL_SERVER_IP = "localhost";
 }
