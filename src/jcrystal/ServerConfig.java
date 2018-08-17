@@ -70,10 +70,4 @@ public class ServerConfig implements Serializable{
 	public String getFirebaseKey() {
 		return firebaseKey;
 	}
-	
-	//TODO: Eliminar del servidor
-
-	public transient File srcFile = LocalPaths.srcFile;
-	public transient File srcUtils = LocalPaths.srcUtils;
-	public transient File webSrcFile = LocalPaths.webSrcFile;
 }

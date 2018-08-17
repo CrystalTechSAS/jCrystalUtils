@@ -16,11 +16,11 @@ import jcrystal.utils.InternalException;
 
 public class FBApi {
 	public static void main(String...args) {
-		getUserInfo("EAAbMKk1eVz0BAGfPXrSNOgE2TSRO2udLHkG7GSASAZB1qT4H11lRaDKP6ZCMCEZA0gkMZB3W0ehrELyKCZBdyqZClq0EDZANfgqGZCfqeWAAP3xgSzjGbjdTZAGiZBX7aRgJL4rcJYrJo2jbMEZC973AEjxHFoUmXPxHEHD4Q44uxo5rhcDViIvRJlfVKyArooMlkZAzVhyqGwyHv2hOab10Ncal");
+		getUserInfo("EAAGpbQBsfIIBAP9MTWdS1eX8CIwi9xqVuoOQcHZBiXFRM5VnCZBACefVpU11JxFm8IeNQfH3p6apI765xawStdaJvVmyVZCUDuaxTFU2JohmOdCVxjC0xQ5NK6VZApQOZAcyl3yq7bw4PRSMg2wrls8AH7Kpi87SH2Eho2NeggKyZC5kXafJ1BRygvbQJoupQmDbXb0FXNnDR59k0e8cQ6TWRspTojyfbb2CAYlGofwAZDZD");
 	}
 	public static FBUser getUserInfo(String token){
 		try {
-			HttpURLConnection connection = (HttpURLConnection) new URL("https://graph.facebook.com/v2.11/me?fields=id,name,about,birthday&access_token="+token).openConnection();
+			HttpURLConnection connection = (HttpURLConnection) new URL("https://graph.facebook.com/v2.11/me?fields=id,name,about,birthday,email,gender,first_name,last_name&access_token="+token).openConnection();
 			connection.setRequestMethod("GET");
 			connection.setConnectTimeout(30000);
 			connection.connect();
@@ -29,6 +29,7 @@ public class FBApi {
 			System.out.println(resp);
 			if(resp>= 200 && resp < 300) {
 				JSONObject json = new JSONObject(new JSONTokener(connection.getInputStream()));
+				System.out.println(json.toString());
 				connection.disconnect();
 				FBUser ret = new FBUser(json);
 				if(json == null || ret.id == null)

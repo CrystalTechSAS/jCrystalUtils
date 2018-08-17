@@ -38,7 +38,7 @@ public class Client implements Serializable{
 		configs.add(new DefaultInternalConfig().baseURL(url));
 		return this;
 	}
-	protected Client clone(ClientType type){
+	public Client clone(ClientType type){
 		Client ret = new Client(type, id);
 		ret.output = output;
 		ret.configs.addAll(configs);
