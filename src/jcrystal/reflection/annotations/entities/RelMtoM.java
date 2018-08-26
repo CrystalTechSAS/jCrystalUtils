@@ -3,6 +3,8 @@ package jcrystal.reflection.annotations.entities;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import jcrystal.json.JsonLevel;
+
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RelMtoM {
 	String value();
@@ -12,4 +14,6 @@ public @interface RelMtoM {
 	* @return
 	*/
 	boolean small() default false;
+	JsonLevel keyLevel() default JsonLevel.NONE;
+	
 }

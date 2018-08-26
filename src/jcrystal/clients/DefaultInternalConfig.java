@@ -1,17 +1,18 @@
 package jcrystal.clients;
 
 import java.io.Serializable;
+import java.util.Map;
+import java.util.TreeMap;
 
 public final class DefaultInternalConfig implements IInternalConfig, Serializable{
 	private static final long serialVersionUID = -5447803111496332057L;
 	
-	private String baseURL;
 	private String id;
 	private boolean embeddedResponse;
-	public DefaultInternalConfig baseURL(String baseURL) {
-		this.baseURL = baseURL;
-		return this;
-	}
+	
+	private String baseURL;
+	private Map<String, String> baseUrlConfigs = new TreeMap<>();
+	
 	@Override public String SUCCESS_NAME() {
 		return "success";
 	}
@@ -34,6 +35,11 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 		return SUCCESS_NAME()+" == 3";
 	}
 	@Override public String BASE_URL(String platform) {
+		if(platform != null && baseUrlConfigs != null) {
+			String ret = baseUrlConfigs.get(platform);
+			if(ret != null)
+				return ret;
+		}
 		return baseURL;
 	}
 	@Override
@@ -51,6 +57,14 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	
 	public DefaultInternalConfig embeddedResponse(boolean value) {
 		embeddedResponse = value;
+		return this;
+	}
+	public DefaultInternalConfig baseURL(String baseURL) {
+		this.baseURL = baseURL;
+		return this;
+	}
+	public DefaultInternalConfig addUrlConfig(String platform, String url) {
+		baseUrlConfigs.put(platform, url);
 		return this;
 	}
 }
