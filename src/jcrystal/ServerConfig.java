@@ -26,6 +26,9 @@ public class ServerConfig implements Serializable{
 	public String firebaseDB;
 	
 	public boolean isAppEngine = true;
+	public boolean DEBUG = false;
+	public String servlet_root_path = "/api";
+	
 	public void setAppEngine(boolean isAppEngine) {
 		this.isAppEngine = isAppEngine;
 	}

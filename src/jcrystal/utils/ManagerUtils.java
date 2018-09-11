@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import com.google.appengine.api.datastore.GeoPt;
 import jcrystal.utils.InternalException;
@@ -18,6 +19,9 @@ public class ManagerUtils {
 	}
 	public static void assertNotNull(Object val, String msg){
 		if(val == null)throw new InternalException(21, msg);
+	}
+	public static void assertEq(Object obj1, Object obj2, String msg){
+		if(!Objects.equals(obj1, obj2))throw new InternalException(22, msg);
 	}
 	public static void asserT(boolean cond, String msg){
 		if(!cond)throw new InternalException(22, msg);
