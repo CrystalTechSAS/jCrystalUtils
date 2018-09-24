@@ -56,6 +56,13 @@ public class JSONUtils {
 		ret+=","+Long.toString(a[e]);
 		return ret+"]";
 	}
+	public static String jsonQuote(boolean[] a){
+		String ret = "[";
+		if(a.length>0)ret += Boolean.toString(a[0]);
+			for(int e=1;e<a.length;e++)
+		ret+=","+Boolean.toString(a[e]);
+		return ret+"]";
+	}
 	public static String jsonQuote(double a){return Double.toString(a);}
 	public static String jsonQuote(boolean a){return Boolean.toString(a);}
 	public static String json(com.google.appengine.api.datastore.GeoPt a){return "["+Float.toString(a.getLatitude())+","+Float.toString(a.getLongitude())+"]";}
