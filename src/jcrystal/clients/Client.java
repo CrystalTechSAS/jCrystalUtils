@@ -17,6 +17,7 @@ public class Client implements Serializable{
 	public final ClientType type;
 	public final String id;
 	public transient String output;
+	public boolean localOutput = false;
 	public final List<IInternalConfig> configs = new ArrayList<>();
 	
 	public Client(ClientType type, String id) {
@@ -30,6 +31,7 @@ public class Client implements Serializable{
 	}
 	public Client setOutput(String output) {
 		this.output = output;
+		localOutput = output == null;
 		return this;
 	}
 	public Client setServerUrl(String url) {
