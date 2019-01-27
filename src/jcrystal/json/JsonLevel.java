@@ -3,9 +3,6 @@ package jcrystal.json;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import jcrystal.preprocess.descriptions.IJType;
-import jcrystal.preprocess.descriptions.JType;
-
 /**
 * Created by G on 11/13/2016.
 */
@@ -35,7 +32,4 @@ public enum JsonLevel{
 			return Integer.compare(o1.level, o2.level);
 		}
 	};
-	public JsonWrapper wrap(IJType type) {
-		return new JsonWrapper(this, type);
-	}
 }
