@@ -9,4 +9,9 @@ public class LongText {
 	public String toString() {
 		return text;
 	}
+	public static LongText create(String val) {
+		if(val == null)
+			return null;
+		return new LongText(val);
+	}
 }
