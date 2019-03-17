@@ -9,13 +9,10 @@
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
+        <directory>resources</directory>
       </resource>
       <resource>
-        <directory>srcGAE</directory>
+        <directory>src</directory>
         <excludes>
           <exclude>**/*.java</exclude>
         </excludes>
