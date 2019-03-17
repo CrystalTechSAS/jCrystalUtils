@@ -5,11 +5,7 @@
  */
 package jcrystal;
 
-import java.io.File;
 import java.io.Serializable;
-import java.util.Arrays;
-
-import jcrystal.local.LocalPaths;
 
 public class ServerConfig implements Serializable{
 	public static ServerConfig lastInstance; 
