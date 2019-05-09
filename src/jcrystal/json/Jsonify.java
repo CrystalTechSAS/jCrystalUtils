@@ -10,5 +10,6 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Jsonify {
+	boolean realtime() default true;
 	JsonLevel level = JsonLevel.BASIC;
 }
