@@ -12,7 +12,7 @@ public class ServerConfig implements Serializable{
 	
 	private static final long serialVersionUID = 5184770722809702499L;
 
-	public WebServerConfig web;
+	public WebServerConfig web = new WebServerConfig();
 	
 	private String GCMToken;
 	
