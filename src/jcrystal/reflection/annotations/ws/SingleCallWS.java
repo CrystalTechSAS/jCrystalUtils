@@ -6,5 +6,5 @@ import java.lang.annotation.Retention;
 
 @Retention(RUNTIME)
 public @interface SingleCallWS {
-	int current() default 0;
+	int value();
 }
