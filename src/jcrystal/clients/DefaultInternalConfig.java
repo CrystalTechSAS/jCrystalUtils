@@ -14,6 +14,7 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	
 	private String id;
 	private boolean embeddedResponse;
+	private boolean external;
 	
 	private String baseURL;
 	private Map<String, String> baseUrlConfigs = new TreeMap<>();
@@ -73,6 +74,10 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 		embeddedResponse = value;
 		return this;
 	}
+	public DefaultInternalConfig external(boolean value) {
+		external = value;
+		return this;
+	}
 	public DefaultInternalConfig baseURL(String baseURL) {
 		this.baseURL = baseURL;
 		return this;
@@ -108,6 +113,10 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	public DefaultInternalConfig UNATHORIZED_CONDITION(String uNATHORIZED_CONDITION) {
 		UNATHORIZED_CONDITION = uNATHORIZED_CONDITION;
 		return this;
+	}
+	@Override
+	public boolean external() {
+		return external;
 	}
 	
 	

@@ -17,6 +17,7 @@ public interface IInternalConfig {
 	public String ERROR_CONDITION();
 	public String UNATHORIZED_CONDITION();
 	public boolean embeddedResponse();
+	public boolean external();
 	/**
 	*
 	* @param platform ios o android
