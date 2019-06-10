@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import jcrystal.JCrystalConfig;
 import jcrystal.ServerConfig;
 import jcrystal.local.LocalPaths;
 
