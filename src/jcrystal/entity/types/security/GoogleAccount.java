@@ -3,8 +3,8 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.entity.types;
+package jcrystal.entity.types.security;
 
-public interface Password {
+public interface GoogleAccount {
 	
 }
