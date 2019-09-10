@@ -9,16 +9,37 @@ import java.io.File;
 import java.util.Arrays;
 
 public class LocalPaths {
-	public final static File srcFile = getExistingFolder("src/main/java","src/java","src");
-	public final static File srcUtils = new File(srcFile.getParentFile(), "utils");
-	public final static File webSrcFile = getExistingFolderNull("src/main/webapp","WebContent","war","web");
-	
+	public static File ROOT = new File(".");
+	private static File srcFile;
+	private static File srcUtils;
+	private static File webSrcFile;
+	public static void setROOT(File rOOT) {
+		ROOT = rOOT;
+		srcFile = getExistingFolder("src/main/java","src/java","src");
+		srcUtils = new File(srcFile.getParentFile(), "utils");
+		webSrcFile = getExistingFolderNull("src/main/webapp","WebContent","war","web");
+	}
+	public static File getSrcFile() {
+		if(srcFile==null)
+			srcFile = getExistingFolder("src/main/java","src/java","src");
+		return srcFile;
+	}
+	public static File getSrcUtils() {
+		if(srcUtils==null)
+			srcUtils = new File(srcFile.getParentFile(), "utils");
+		return srcUtils;
+	}
+	public static File getWebSrcfile() {
+		if(webSrcFile==null)
+			webSrcFile = getExistingFolderNull("src/main/webapp","WebContent","war","web");
+		return webSrcFile;
+	}
 	private static File getExistingFolder(String...files) {
-		for(String f : files)if(new File(f).exists())return new File(f).getAbsoluteFile();
+		for(String f : files)if(new File(ROOT,f).exists())return new File(ROOT, f).getAbsoluteFile();
 		throw new NullPointerException("Folder not found "+ Arrays.toString(files));
 	}
 	private static File getExistingFolderNull(String...files) {
-		for(String f : files)if(new File(f).exists())return new File(f).getAbsoluteFile();
+		for(String f : files)if(new File(ROOT,f).exists())return new File(ROOT,f).getAbsoluteFile();
 		return null;
 	}
 }

@@ -5,8 +5,6 @@
  */
 package jcrystal.clients;
 
-import java.util.List;
-
 public interface IInternalConfig {
 	public String id();
 	public String SUCCESS_NAME();

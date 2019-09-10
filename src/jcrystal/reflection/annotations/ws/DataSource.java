@@ -15,4 +15,5 @@ public @interface DataSource {
 	 * @return
 	 */
 	String[] value() default {};
+	String mapBy() default "";
 }

@@ -9,7 +9,7 @@ package jcrystal.reflection;
 * Created by gasotelo on 2/11/17.
 */
 public enum TipoRuta {
-	GET, POST, PUT, PATH, DELETE, PATCH, HEADER;
+	GET, POST, PUT, PATH, DELETE, PATCH, HEADER, SESSION;
 	public boolean isGetLike() {
 		return this == GET || this == DELETE; 
 	}

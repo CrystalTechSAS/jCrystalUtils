@@ -11,4 +11,6 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HashSalt {
 	String value();
+	Base base() default Base.BASE64;
+	HashAlg alg() default HashAlg.SHA256;
 }

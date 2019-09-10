@@ -10,7 +10,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import jcrystal.ServerConfig;
 import jcrystal.local.LocalPaths;
 
 public class Client implements Serializable{
@@ -29,7 +28,7 @@ public class Client implements Serializable{
 		this.id = id;
 		CLIENTES.add(this);
 		if(type == ClientType.ADMIN)
-			output = new File(LocalPaths.webSrcFile,"admin").getAbsolutePath();
+			output = new File(LocalPaths.getWebSrcfile(),"admin").getAbsolutePath();
 		else
 			output = new File("./"+type.name().toLowerCase()).getAbsolutePath();
 	}

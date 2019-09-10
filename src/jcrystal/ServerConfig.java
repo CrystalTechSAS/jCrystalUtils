@@ -8,17 +8,11 @@ package jcrystal;
 import java.io.Serializable;
 
 public class ServerConfig implements Serializable{
-	public static ServerConfig lastInstance; 
-	
 	private static final long serialVersionUID = 5184770722809702499L;
 
 	public WebServerConfig web = new WebServerConfig();
 	
 	private String GCMToken;
-	
-	public ServerConfig() {
-		lastInstance = this;
-	}
 	
 	public String firebaseKey;
 	public String firebaseDB;
