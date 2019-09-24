@@ -20,6 +20,7 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	private Map<String, String> baseUrlConfigs = new TreeMap<>();
 	
 	private String SUCCESS_NAME = "success";
+	private String AUTHORIZATION_NAME = "Authorization";
 	private Class<?> SUCCESS_TYPE = int.class;
 	private Object SUCCESS_DAFAULT_VALUE = 1;
 	private String ERROR_MESSAGE_NAME = "mensaje";
@@ -117,6 +118,13 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	@Override
 	public boolean external() {
 		return external;
+	}
+	@Override
+	public String AUTHORIZATION_NAME() {
+		return AUTHORIZATION_NAME;
+	}
+	public void AUTHORIZATION_NAME(String name) {
+		AUTHORIZATION_NAME = name;
 	}
 	
 	

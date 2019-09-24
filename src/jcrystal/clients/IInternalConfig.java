@@ -8,6 +8,7 @@ package jcrystal.clients;
 public interface IInternalConfig {
 	public String id();
 	public String SUCCESS_NAME();
+	public String AUTHORIZATION_NAME();
 	public Class<?> SUCCESS_TYPE();
 	public Object SUCCESS_DAFAULT_VALUE();
 	public String ERROR_MESSAGE_NAME();
