@@ -3,7 +3,7 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.reflection;
+package jcrystal.reflection.annotations.security;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
