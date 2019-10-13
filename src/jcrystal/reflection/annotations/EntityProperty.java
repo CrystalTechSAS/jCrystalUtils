@@ -15,9 +15,8 @@ import java.lang.annotation.RetentionPolicy;
 */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface EntityProperty {
-	String name() default "";
-	boolean indexed() default false;
-	boolean unique() default false;
+	String name() default ""; 
+	IndexType index() default IndexType.NONE;
 	boolean autoNow() default false;
 	/**
 	* Is user editable (via an api method)
