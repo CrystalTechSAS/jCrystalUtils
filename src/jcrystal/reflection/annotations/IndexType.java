@@ -16,11 +16,11 @@ public enum IndexType {
 	 */
 	NONE, 
 	/**
-	 * Indexed, allow multiple entities with the same index value
+	 * The most simple type of index. The field is indexed and a query over a value this field can retrieve multiple entities.
 	 */
 	MULTIPLE,
 	/**
-	 * Indexed, it suppose you avoid to add multiple entities for the same value. You must encorage to do se.
+	 * Indexed, it suppose you avoid to add multiple entities for the same value. You must encourage to do so.
 	 */
 	UNIQUE,
 	/**

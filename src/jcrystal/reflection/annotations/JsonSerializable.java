@@ -3,13 +3,15 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.json;
+package jcrystal.reflection.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import jcrystal.json.JsonLevel;
+
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Jsonify {
+public @interface JsonSerializable {
 	boolean realtime() default false;
 	JsonLevel level = JsonLevel.BASIC;
 }
