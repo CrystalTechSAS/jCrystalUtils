@@ -15,18 +15,15 @@ import jcrystal.local.LocalPaths;
 public class Client implements Serializable{
 	private static final long serialVersionUID = -2328141684625590053L;
 
-	public static List<Client> CLIENTES = new ArrayList<>();
-	
 	public final ClientType type;
 	public final String id;
 	public transient String output;
 	public boolean localOutput = false;
 	public final List<IInternalConfig> configs = new ArrayList<>();
 	
-	public Client(ClientType type, String id) {
+	protected Client(ClientType type, String id) {
 		this.type = type;
 		this.id = id;
-		CLIENTES.add(this);
 		if(type == ClientType.ADMIN)
 			output = new File(LocalPaths.getWebSrcfile(),"admin").getAbsolutePath();
 		else

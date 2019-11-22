@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class JClientAndroid extends Client implements Serializable{
 	private static final long serialVersionUID = -4229993352921051902L;
 
-	public JClientAndroid(String id) {
+	protected JClientAndroid(String id) {
 		super(ClientType.ANDROID, id);
 	}
 	public boolean firebasCrashReportingEnabled = false;

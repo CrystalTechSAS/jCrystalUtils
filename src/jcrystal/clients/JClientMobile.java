@@ -10,7 +10,7 @@ public class JClientMobile{
 	JClientAndroid clientAndroid;
 	JClientIOS clientIOS;
 	
-	public JClientMobile(String id) {
+	protected JClientMobile(String id) {
 		clientAndroid = new JClientAndroid(id);
 		clientIOS = new JClientIOS(id);
 	}
