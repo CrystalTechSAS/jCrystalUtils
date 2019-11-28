@@ -28,9 +28,11 @@ public class ClientConfig implements Serializable{
 		switch (type) {
 		case ANDROID:
 		case IOS:
-			throw new jCrystalConfigException("Please use addMobile for Mobile clients or addAndroid and addiOS for Android and iOS");
+			throw new jCrystalConfigException("Please use addMobile for Mobile clients or add Android and addiOS for Android and iOS");
 		default:
-			return new Client(type, id);
+			Client ret = new Client(type, id);
+			list.add(ret);
+			return ret;
 		}
 	}
 	public JClientMobile addMobile(String id) {
