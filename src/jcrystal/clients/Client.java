@@ -10,8 +10,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import jcrystal.local.LocalPaths;
-
 public class Client implements Serializable{
 	private static final long serialVersionUID = -2328141684625590053L;
 
@@ -24,10 +22,6 @@ public class Client implements Serializable{
 	protected Client(ClientType type, String id) {
 		this.type = type;
 		this.id = id;
-		if(type == ClientType.ADMIN)
-			output = new File(LocalPaths.getWebSrcfile(),"admin").getAbsolutePath();
-		else
-			output = new File("./"+type.name().toLowerCase()).getAbsolutePath();
 	}
 	public Client setOutput(String output) {
 		this.output = output;

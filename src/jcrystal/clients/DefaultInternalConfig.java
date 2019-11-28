@@ -21,7 +21,7 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	
 	private String SUCCESS_NAME = "success";
 	private String AUTHORIZATION_NAME = "Authorization";
-	private Class<?> SUCCESS_TYPE = int.class;
+	private SuccessType SUCCESS_TYPE = SuccessType.INT;
 	private Object SUCCESS_DAFAULT_VALUE = 1;
 	private String ERROR_MESSAGE_NAME = "mensaje";
 	private String SUCCESS_CONDITION = "success == 1";
@@ -32,7 +32,7 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 	@Override public String SUCCESS_NAME() {
 		return SUCCESS_NAME;
 	}
-	@Override public Class<?> SUCCESS_TYPE() {
+	@Override public SuccessType SUCCESS_TYPE() {
 		return SUCCESS_TYPE;
 	}
 	@Override public Object SUCCESS_DAFAULT_VALUE() {
@@ -87,12 +87,12 @@ public final class DefaultInternalConfig implements IInternalConfig, Serializabl
 		baseUrlConfigs.put(platform, url);
 		return this;
 	}
-	public DefaultInternalConfig SUCCESS_NAME(String sUCCESS_NAME) {
-		SUCCESS_NAME = sUCCESS_NAME;
+	public DefaultInternalConfig SUCCESS_NAME(String name) {
+		SUCCESS_NAME = name;
 		return this;
 	}
-	public DefaultInternalConfig SUCCESS_TYPE(Class<?> sUCCESS_TYPE) {
-		SUCCESS_TYPE = sUCCESS_TYPE;
+	public DefaultInternalConfig SUCCESS_TYPE(SuccessType type) {
+		SUCCESS_TYPE = type;
 		return this;
 	}
 	public DefaultInternalConfig SUCCESS_DAFAULT_VALUE(Object sUCCESS_DAFAULT_VALUE) {
