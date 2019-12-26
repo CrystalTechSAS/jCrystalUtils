@@ -7,7 +7,7 @@ public class WebServerConfig implements Serializable {
 	private static final long serialVersionUID = -9009627464519568919L;
 	
 	/** El paquete base donde se almacenan las clases generadas */
-	private String basePackage;
+	private String basePackage = "com.jcrystal.servlets";
 	
 	private boolean enableJSF = false;
 	public String servlet_root_path = "/api";
