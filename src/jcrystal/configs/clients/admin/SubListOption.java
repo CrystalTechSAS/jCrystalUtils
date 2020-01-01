@@ -3,7 +3,7 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.clients.admin;
+package jcrystal.configs.clients.admin;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,7 +12,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value= {ElementType.METHOD})
-public @interface ListOption {
+public @interface SubListOption {
 	String name() default "Opción extra";
 	String icon() default "question";
+	Class<?> sublistClass();
 }

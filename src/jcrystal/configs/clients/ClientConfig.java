@@ -1,4 +1,4 @@
-package jcrystal.clients;
+package jcrystal.configs.clients;
 
 import java.io.Serializable;
 import java.util.ArrayList;

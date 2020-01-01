@@ -3,7 +3,7 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.clients.admin;
+package jcrystal.configs.clients.admin;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

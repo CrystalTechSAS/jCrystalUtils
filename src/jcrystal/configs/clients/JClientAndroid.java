@@ -3,22 +3,22 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.clients;
+package jcrystal.configs.clients;
 
 import java.io.Serializable;
 
-public class JClientIOS extends Client implements Serializable{
-	private static final long serialVersionUID = -1466840809186165984L;
+public class JClientAndroid extends Client implements Serializable{
+	private static final long serialVersionUID = -4229993352921051902L;
 
-	protected JClientIOS(String id) {
-		super(ClientType.IOS, id);
+	protected JClientAndroid(String id) {
+		super(ClientType.ANDROID, id);
 	}
 	public boolean firebasCrashReportingEnabled = false;
 	
 	public boolean getFirebaseCrashReportingEnabled() {
 		return firebasCrashReportingEnabled;
 	}
-	public JClientIOS enableFirebasCrashReporting() {
+	public JClientAndroid enableFirebasCrashReporting() {
 		this.firebasCrashReportingEnabled = true;
 		return this;
 	}

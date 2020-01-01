@@ -1,4 +1,4 @@
-package jcrystal.clients;
+package jcrystal.configs.clients;
 
 public enum SuccessType {
 	INT,

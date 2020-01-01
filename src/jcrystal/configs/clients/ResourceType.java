@@ -3,8 +3,8 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal;
+package jcrystal.configs.clients;
 
-public enum JSType {
-	ANGULAR, JSWEET, JQUERY
+public enum ResourceType {
+	WEB_INF
 }

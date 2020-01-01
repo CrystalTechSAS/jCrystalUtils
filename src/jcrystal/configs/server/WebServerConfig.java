@@ -1,4 +1,4 @@
-package jcrystal;
+package jcrystal.configs.server;
 
 import java.io.Serializable;
 

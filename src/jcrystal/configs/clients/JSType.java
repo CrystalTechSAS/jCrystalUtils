@@ -3,17 +3,8 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.clients;
+package jcrystal.configs.clients;
 
-public enum ClientType {
-	TYPESCRIPT,
-	ADMIN,
-	IOS,
-	ANDROID,
-	CONSOLE,
-	SWEET,
-	JQUERY,
-	JAVA,
-	FLUTTER
-	
+public enum JSType {
+	ANGULAR, JSWEET, JQUERY
 }

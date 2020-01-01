@@ -3,8 +3,12 @@
  * Proprietary and confidential
  * Written by Germán Augusto Sotelo Arévalo <gasotelo@crystaltech.co>, December 2018
  */
-package jcrystal.clients;
+package jcrystal.configs.server.dbs;
 
-public enum ResourceType {
-	WEB_INF
+public enum DBType {
+	GOOGLE_DATASTORE,
+	MYSQL,
+	GOOGLE_FIRESTORE,
+	GOOGLE_STORAGE,
+	
 }
