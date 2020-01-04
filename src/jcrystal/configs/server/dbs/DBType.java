@@ -10,5 +10,6 @@ public enum DBType {
 	MYSQL,
 	GOOGLE_FIRESTORE,
 	GOOGLE_STORAGE,
+	GOOGLE_BIG_QUERY;
 	
 }
