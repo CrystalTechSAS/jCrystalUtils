@@ -12,4 +12,7 @@ public class DBInstance implements Serializable{
 		this.type = type;
 		this.id = id;
 	}
+	public String getDBName() {
+		return (id==null?"DefaultDB":id);
+	}
 }
