@@ -11,4 +11,10 @@ public class DBConfig implements Serializable{
 	public DBType mainDBType = DBType.GOOGLE_DATASTORE;
 	
 	public List<DBInstance> list = new ArrayList<>();
+	
+	public DBInstanceBigQuery addGoogleBigQuery(String id, String datasetId) {
+		DBInstanceBigQuery db = new DBInstanceBigQuery(id, datasetId);
+		list.add(db);
+		return db;
+	}
 }
