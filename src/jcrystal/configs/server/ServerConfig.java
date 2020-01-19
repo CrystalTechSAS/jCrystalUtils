@@ -18,7 +18,7 @@ public class ServerConfig implements Serializable{
 	public final FirebaseConfig FIREBASE = new FirebaseConfig();
 	public final WebServerConfig WEB = new WebServerConfig();
 	
-	public boolean DEBUG = false;
+	public final DebugInfo DEBUG = new DebugInfo();
 	
 	public void setAppEngine(boolean isAppEngine) {
 		this.isAppEngine = isAppEngine;
