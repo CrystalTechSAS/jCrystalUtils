@@ -16,4 +16,7 @@ public enum TipoRuta {
 	public boolean isPostLike() {
 		return this == PATCH || this == POST || this == PUT; 
 	}
+	public boolean isSentByClient() {
+		return this.isGetLike() || this.isPostLike(); 
+	}
 }
