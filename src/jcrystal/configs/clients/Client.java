@@ -24,7 +24,7 @@ public class Client implements Serializable{
 	}
 	public Client setOutput(String output) {
 		this.output = output;
-		localOutput = output == null;
+		localOutput = output != null;
 		return this;
 	}
 	public Client setServerUrl(String url) {
