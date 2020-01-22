@@ -6,8 +6,8 @@
 package jcrystal.configs.server;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import jcrystal.configs.server.dbs.DBConfig;
 import jcrystal.lang.Language;
@@ -23,7 +23,7 @@ public class ServerConfig implements Serializable{
 	
 	public final DebugInfo DEBUG = new DebugInfo();
 	
-	public final List<Backend> BACKENDS = new ArrayList<>();
+	public final Map<String, Backend> BACKENDS = new TreeMap<>();
 	
 	public void setAppEngine(boolean isAppEngine) {
 		this.isAppEngine = isAppEngine;
@@ -34,7 +34,7 @@ public class ServerConfig implements Serializable{
 	
 	public Backend addBackend(String id, Language lang) {
 		Backend back = new Backend(id, lang);
-		BACKENDS.add(back);
+		BACKENDS.put(id, back);
 		return back;
 	}
 	
