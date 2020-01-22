@@ -6,8 +6,11 @@
 package jcrystal.configs.server;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jcrystal.configs.server.dbs.DBConfig;
+import jcrystal.lang.Language;
 
 public class ServerConfig implements Serializable{
 	private static final long serialVersionUID = 5184770722809702499L;
@@ -20,10 +23,19 @@ public class ServerConfig implements Serializable{
 	
 	public final DebugInfo DEBUG = new DebugInfo();
 	
+	public final List<Backend> BACKENDS = new ArrayList<>();
+	
 	public void setAppEngine(boolean isAppEngine) {
 		this.isAppEngine = isAppEngine;
 	}
 	public boolean isAppEngine() {
 		return isAppEngine;
 	}
+	
+	public Backend addBackend(String id, Language lang) {
+		Backend back = new Backend(id, lang);
+		BACKENDS.add(back);
+		return back;
+	}
+	
 }
