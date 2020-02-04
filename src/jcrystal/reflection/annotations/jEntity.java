@@ -12,4 +12,5 @@ import java.lang.annotation.RetentionPolicy;
 public @interface jEntity {
 	String name() default "";
 	boolean useParentName() default false;
+	boolean internal() default false;
 }
