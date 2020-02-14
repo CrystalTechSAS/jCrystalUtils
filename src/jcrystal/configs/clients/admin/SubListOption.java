@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value= {ElementType.METHOD})
 public @interface SubListOption {
-	String name() default "Opción extra";
+	String name() default "Extra option";
 	String icon() default "question";
 	Class<?> sublistClass();
 }
