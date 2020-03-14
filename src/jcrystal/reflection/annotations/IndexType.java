@@ -26,8 +26,8 @@ public enum IndexType {
 	/**
 	 * Indexed. It allow only one entity per value. If you try to put a second entity with the same value jCrystal will generate an exception  
 	 */
-	UNIQUE_VERIFICATION;
+	UNIQUE_CHECK;
 	public boolean isUnique() {
-		return this == IndexType.UNIQUE || this == UNIQUE_VERIFICATION;
+		return this == IndexType.UNIQUE || this == UNIQUE_CHECK;
 	}
 }
