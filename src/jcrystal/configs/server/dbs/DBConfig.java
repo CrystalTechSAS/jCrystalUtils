@@ -15,6 +15,15 @@ public class DBConfig implements Serializable{
 	public DBInstanceBigQuery addGoogleBigQuery(String id, String datasetId) {
 		DBInstanceBigQuery db = new DBInstanceBigQuery(this, id, datasetId);
 		list.add(db);
+		if(id == null)
+			MAIN = db;
+		return db;
+	}
+	public DBInstanceFirestore addFirestore(String id, String projectId) {
+		DBInstanceFirestore db = new DBInstanceFirestore(this, id, projectId);
+		list.add(db);
+		if(id == null)
+			MAIN = db;
 		return db;
 	}
 }
