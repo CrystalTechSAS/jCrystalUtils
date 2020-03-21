@@ -15,6 +15,7 @@ public enum DBType {
 		switch (this) {
 		case MYSQL:
 		case GOOGLE_DATASTORE:
+		case GOOGLE_FIRESTORE:
 			return true;
 		default:
 			return false;
