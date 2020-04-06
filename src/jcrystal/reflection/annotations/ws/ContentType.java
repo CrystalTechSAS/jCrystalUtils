@@ -17,6 +17,8 @@ public enum ContentType {
 		}
 	}
 	public boolean is(String contentType) {
+		if(contentType == null)
+			return false;
 		return contentType.toLowerCase().contains(getMimeType());
 	}
 }
