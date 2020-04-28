@@ -8,12 +8,12 @@ public class DBConfig implements Serializable{
 
 	private static final long serialVersionUID = 8099533307912205160L;
 
-	public DBInstance MAIN = new DBInstance(this, DBType.GOOGLE_DATASTORE, null);
+	public DBInstance MAIN = new DBInstance(DBType.GOOGLE_DATASTORE, null);
 	
 	public List<DBInstance> list = new ArrayList<>();
 	
 	public DBInstanceBigQuery addGoogleBigQuery(String id, String datasetId) {
-		DBInstanceBigQuery db = new DBInstanceBigQuery(this, id, datasetId);
+		DBInstanceBigQuery db = new DBInstanceBigQuery(id, datasetId);
 		if(id == null)
 			MAIN = db;
 		else
@@ -21,7 +21,7 @@ public class DBConfig implements Serializable{
 		return db;
 	}
 	public DBInstanceFirestore addFirestore(String id, String projectId) {
-		DBInstanceFirestore db = new DBInstanceFirestore(this, id, projectId);
+		DBInstanceFirestore db = new DBInstanceFirestore(id, projectId);
 		if(id == null)
 			MAIN = db;
 		else

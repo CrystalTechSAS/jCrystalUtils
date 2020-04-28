@@ -6,8 +6,8 @@ public final class DBInstanceFirestore extends DBInstance{
 
 	private String projectId;
 	
-	public DBInstanceFirestore(DBConfig config, String id, String projectId) {
-		super(config, DBType.GOOGLE_FIRESTORE, id);
+	public DBInstanceFirestore(String id, String projectId) {
+		super(DBType.GOOGLE_FIRESTORE, id);
 		this.projectId = projectId;
 	}
 	public String getProjectId() {

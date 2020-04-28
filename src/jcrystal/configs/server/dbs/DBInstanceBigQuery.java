@@ -6,8 +6,8 @@ public final class DBInstanceBigQuery extends DBInstance{
 
 	private String datasetId;
 	
-	public DBInstanceBigQuery(DBConfig config, String id, String datasetId) {
-		super(config, DBType.GOOGLE_BIG_QUERY, id);
+	public DBInstanceBigQuery(String id, String datasetId) {
+		super(DBType.GOOGLE_BIG_QUERY, id);
 		this.datasetId = datasetId;
 	}
 	public String getDatasetId() {

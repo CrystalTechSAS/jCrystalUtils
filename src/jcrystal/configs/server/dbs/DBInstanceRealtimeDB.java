@@ -6,8 +6,8 @@ public final class DBInstanceRealtimeDB extends DBInstance{
 
 	private String firebaseDB;
 	
-	public DBInstanceRealtimeDB(DBConfig config, String id, String firebaseDB) {
-		super(config, DBType.GOOGLE_REALTIMEDB, id);
+	public DBInstanceRealtimeDB(String id, String firebaseDB) {
+		super(DBType.GOOGLE_REALTIMEDB, id);
 		this.firebaseDB = firebaseDB;
 	}
 	
