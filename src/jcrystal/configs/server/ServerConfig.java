@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import jcrystal.configs.server.dbs.DBConfig;
+import jcrystal.configs.server.integrations.FirebaseConfig;
+import jcrystal.configs.server.integrations.IntegrationConfig;
 import jcrystal.lang.Language;
 
 public class ServerConfig implements Serializable{
@@ -18,7 +20,7 @@ public class ServerConfig implements Serializable{
 	public boolean isAppEngine = true;
 	
 	public final DBConfig DB = new DBConfig();
-	public final FirebaseConfig FIREBASE = new FirebaseConfig();
+	public final IntegrationConfig INTEGRATION = new IntegrationConfig();
 	public final WebServerConfig WEB = new WebServerConfig();
 	
 	public final DebugInfo DEBUG = new DebugInfo();
