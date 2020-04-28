@@ -14,5 +14,5 @@ public @interface Def {
 	int I() default 0;
 	double D() default 0;
 	boolean B() default false;
-	long L() default 0;
+	long L() default 0; 
 }
