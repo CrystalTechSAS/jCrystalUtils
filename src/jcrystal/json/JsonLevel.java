@@ -34,7 +34,10 @@ public enum JsonLevel{
 			if(o1 == o2)return 0;
 			if(o1 == null)return -1;
 			if(o2 == null)return 1;
-			return Integer.compare(o1.level, o2.level);
+			int c = Integer.compare(o1.level, o2.level);
+			if(c != 0)
+				return c;
+			return o1.name().compareTo(o2.name());
 		}
 	};
 }
