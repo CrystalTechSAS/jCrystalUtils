@@ -12,6 +12,5 @@ import jcrystal.json.JsonLevel;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface jSerializable {
-	boolean realtime() default false;
 	JsonLevel level = JsonLevel.BASIC;
 }
