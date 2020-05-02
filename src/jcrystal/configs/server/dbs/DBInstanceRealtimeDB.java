@@ -4,18 +4,27 @@ public final class DBInstanceRealtimeDB extends DBInstance{
 
 	private static final long serialVersionUID = 6851756725011893341L;
 
-	private String firebaseDB;
+	private String prodDB;
+	private String devDB;
 	
-	public DBInstanceRealtimeDB(String id, String firebaseDB) {
+	public DBInstanceRealtimeDB(String id, String prodDB) {
 		super(DBType.GOOGLE_REALTIMEDB, id);
-		this.firebaseDB = firebaseDB;
+		this.prodDB = prodDB;
 	}
 	
-	public void firebaseDB(String firebaseDB) {
-		this.firebaseDB = firebaseDB;
+	public void prodDB(String prodDB) {
+		this.prodDB = prodDB;
 	}
 	
-	public String firebaseDB() {
-		return firebaseDB;
+	public String prodDB() {
+		return prodDB;
+	}
+	
+	public DBInstanceRealtimeDB devDB(String devDB) {
+		this.devDB = devDB;
+		return this;
+	}
+	public String devDB(){
+		return devDB;
 	}
 }
