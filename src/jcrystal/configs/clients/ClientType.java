@@ -14,6 +14,7 @@ public enum ClientType {
 	SWEET,
 	JQUERY,
 	JAVA,
-	FLUTTER
+	FLUTTER,
+	ANGULAR
 	
 }
